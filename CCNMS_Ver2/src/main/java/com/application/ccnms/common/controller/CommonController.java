@@ -31,62 +31,15 @@ public class CommonController {
 	@Autowired
 	private CommonService commonService;
 	
-//	private final String FILE_REPO_PATH = "C:\\ccnms_file_repo\\";
-	private final String FILE_REPO_PATH = "/var/lib/tomcat9/file_repo/";
+	private final String FILE_REPO_PATH = "C:\\ccnms_file_repo\\";
+//	private final String FILE_REPO_PATH = "/var/lib/tomcat9/file_repo/";
 	
 	
 	@GetMapping("/")
 	public ModelAndView home(@RequestParam(required =false, value="sort") String sort, HttpServletRequest request) throws Exception {
 	
 		ModelAndView mv = new ModelAndView();
-		int onePageViewCnt = 10;
-		if (request.getParameter("onePageViewCnt") != null) {
-			onePageViewCnt = Integer.parseInt(request.getParameter("onePageViewCnt"));
-		}
-
-		String temp = request.getParameter("currentPageNumber");
-		if (temp == null) {
-			temp="1";
-		}
-		int currentPageNumber = Integer.parseInt(temp);
-
-		int allDiggingCnt = commonService.getAllDiggingCnt();
-		
-		int allPageCnt = allDiggingCnt / onePageViewCnt + 1;
-		if (allDiggingCnt % allPageCnt == 0) {
-			allPageCnt--;
-		}
-		
-		int startPage = (currentPageNumber - 1) / 10 * 10 + 1;
-		if (startPage == 0) {
-			startPage = 1;
-		}
-		int endPage = startPage + 9;
-		if (endPage > allPageCnt) endPage = allPageCnt;
-		
-		int startDiggingIdx = (currentPageNumber -1) * onePageViewCnt;
-		
-
-		mv.addObject("startPage", startPage);
-		mv.addObject("endPage", endPage);
-		mv.addObject("allDiggingCnt", allDiggingCnt);
-		mv.addObject("allPageCnt", allPageCnt);
-		mv.addObject("onePageViewCnt", onePageViewCnt);
-		mv.addObject("currentPageNumber", currentPageNumber);
-		mv.addObject("startDiggingIdx",startDiggingIdx);
-		
-		Map<String, Object> sortMap = new HashMap<String, Object>();
-		sortMap.put("onePageViewCnt", onePageViewCnt);
-		sortMap.put("startDiggingIdx", startDiggingIdx);
-		sortMap.put("sort", sort);
-		mv.addObject("diggingList", commonService.getDiggingList(sortMap));
-		mv.addObject("sort", sort);
-		
-		mv.addObject("headList", commonService.getHeadList());
-		mv.addObject("recentShopList", commonService.getRecentShopList());
-		mv.addObject("populerShopList", commonService.getPopulerShopList());
-		mv.addObject("exchangeShopList", commonService.getExchangeShopList());
-		
+	
 		mv.setViewName("/common/main");
 		return mv;
 	}
