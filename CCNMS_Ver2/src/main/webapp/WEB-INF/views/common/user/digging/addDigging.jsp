@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	.tab-content {
+		margin: 10px;
+	}
 	 li{
 		 list-style-type: none;
 	 }
@@ -35,57 +38,7 @@
 			}
 		})
 	});
-	function getDig(){
-		var diggingTopic = $("[name='diggingTopic']").val();
-		if (diggingTopic == "game") {
-			hideDig();
-			$("#game").show();
-		}
-		else if (diggingTopic =="kPop"){
-			hideDig();
-			$("#kPop").show();
-		}
-		else if (diggingTopic =="ott"){
-			hideDig();
-			$("#ott").show();
-		}
-		else if (diggingTopic =="animal"){
-			hideDig();
-			$("#animal").show();
-		}
-		else if (diggingTopic =="business"){
-			hideDig();
-			$("#business").show();
-		}
-		else if (diggingTopic =="sport"){
-			hideDig();
-			$("#sport").show();
-		}
-		else if (diggingTopic =="celeb"){
-			hideDig();
-			$("#celeb").show();
-		}
-		else if (diggingTopic =="travel"){
-			hideDig();
-			$("#travel").show();
-		}
-		else if (diggingTopic =="fashion"){
-			hideDig();
-			$("#fashion").show();
-		}
-		else hideDig();
-	}
-	function hideDig(){
-		$("#game").hide();
-		$("#kPop").hide();
-		$("#ott").hide();
-		$("#animal").hide();
-		$("#business").hide();
-		$("#sport").hide();
-		$("#celeb").hide();
-		$("#travel").hide();
-		$("#fashion").hide();
-	}
+	
 </script>
 </head>
 <body>
@@ -139,6 +92,8 @@
                       			<tr>
                       				<th>디깅 토픽 : </th>
                       				<th>
+                      					
+                      				
                     					<select name="diggingTopic" onchange="getDig()">
 					  						<option value="null">[필수]</option>
 					  						<option value="game">게임</option>
@@ -159,68 +114,7 @@
 			  									<option value="etc">etc</option>
 			  								</select>
 			  							</div>
-			  							<div id="kPop" style="display: none">	
-			  								<select name="kPop" onchange="setDig()">
-			  									<option>BTS</option>
-			  									<option>IVE</option>
-			  									<option>NEWJEANS</option>
-			  									<option>AKMU</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
-		  								<div id="ott" style="display: none">
-			  								<select name="ott">
-			  									<option>마이_데몬</option>
-			  									<option>고려_거란_전쟁</option>
-			  									<option>무인도의_디바</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
-		  								<div id="animal" style="display: none">
-			  								<select name="animal">
-			  									<option>PET</option>
-			  									<option>푸바오</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
-		  								<div id="business" style="display: none">
-			  								<select name="business">
-			  									<option>주식</option>
-			  									<option>부동산</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
-		  								<div id="sport" style="display: none">
-			  								<select name="sport">
-			  									<option>야구</option>
-			  									<option>축구</option>
-			  									<option>배구</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
-		  								<div id="celeb" style="display: none">
-			  								<select name="celeb">
-			  									<option>Taylor_Swift</option>
-			  									<option>Sam_Smith</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
-		  								<div id="travel" style="display: none">
-			  								<select name="travel">
-			  									<option>다낭</option>
-			  									<option>타이베이</option>
-			  									<option>유럽</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
-		  								<div id="fashion" style="display: none">
-			  								<select name="fashion">
-			  									<option>HEALTH</option>
-			  									<option>HOT_TREND</option>
-			  									<option>BEAUTY</option>
-			  									<option>etc</option>
-			  								</select>
-		  								</div>
+			  						
 		  								&emsp;<span id="topicWarn" style="color:red"></span>
                       				</th>
                       			</tr>
